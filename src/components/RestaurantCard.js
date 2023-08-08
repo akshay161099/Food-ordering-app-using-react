@@ -1,15 +1,15 @@
 
 import {RES_LOGO} from "../utils/constants";
-const RestaurantCard = (props) => {
-    const {resData} = props;
-    const {name,id,cuisines,deliveryTime,rating} = resData;
+const RestaurantCard = (resData) => {
+    //console.log(resData.resData);
+    const {name,cuisines,areaName,avgRating,cloudinaryImageId} = resData.resData;
     return (
         <div className="res-card">
-            <img className="res-logo" src={RES_LOGO} alt="KFC"></img>
+            <img className="res-logo" src={RES_LOGO.concat(cloudinaryImageId)} alt="KFC"></img>
             <h4>{name}</h4>
             <h4>{cuisines.join(", ")}</h4>
-            <h4>{deliveryTime}</h4>
-            <h4>{rating}</h4>
+            <h4>{areaName}</h4>
+            <h4>{avgRating}</h4>
         </div>
     );
 }
