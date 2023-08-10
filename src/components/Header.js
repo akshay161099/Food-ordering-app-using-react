@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { LOGO_URL, CART_LOGO } from "../utils/constants";
 const Header = () => {
+    const [filterValue,setFilterValue] = useState("Logout");
     return(
         <div className="header">
             <div className="logo">
@@ -11,6 +13,9 @@ const Header = () => {
                     <li>About Us</li>
                     <li>Contact</li>
                     <li><img className="cartLogo" src={CART_LOGO}></img></li>
+                    <button className="logout-btn" onClick={()=>{
+                        filterValue === "Logout"?setFilterValue("Login"):setFilterValue("Logout");
+                    }}>{filterValue}</button>
                 </ul>
             </div>
         </div>
