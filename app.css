@@ -2,12 +2,13 @@
     color: red;
 }
 .logoImage{
-    width: 100px;
+    width: 80px;
 }
 .header{
     border: 1px solid black;
     display: flex;
     justify-content: space-between;
+    
 }
 .cartLogo{
     width: 40px;
@@ -28,13 +29,14 @@
 }
 .res-logo{
     width: 100%;
-    height: 50%;
+    
     border: 1px solid red;
 }
-.res-card{
+.res-card{   
     margin: 5px;
     width: 200px;
     background-color: azure;
+    padding: 10px 10px;
 
 }
 .res-card:hover{
@@ -44,7 +46,7 @@
 .res-container{
     display: flex;
     flex-wrap: wrap;
-    padding: 10px;
+    padding: 10px 40px;
 }
 .filter-btn{
     background-color: #4CAF50; /* Green */
@@ -64,4 +66,63 @@
 .logout-btn{
     width: 100px;
     height: 50px;
+}
+.shimmer-cards{
+    padding: 10px 10px;
+    width: 150px;
+    height: 200px;
+    margin: 10px;
+    background-color: #f0f0f0;
+    
+}
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px 50px;
+
+}
+.search-btn{
+    background-color: #4CAF50; /* Green */
+  border: 1px solid black;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin-left: 4px;
+  border-radius: 4px;
+}
+.search-box{
+    
+        font-size: 16px;
+        font-size: max(16px, 1em);
+        font-family: inherit;
+        padding: 0.25em 0.5em;
+        background-color: #fff;
+        border: 1px solid black;
+        border-radius: 4px;
+
+}
+.offerCards:hover{
+    border: 1px solid black;
+}
+.menuCard{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px 5px;
+}
+.offerCard{
+    align-items: center;
+    background-color: #f0f0f0;
+    width: 200px;
+    padding: 5px 5px;
+}
+.offerCards{
+    padding: 5px 5px;
+}
+
+.linkTag{
+    text-decoration: none;
+    color: black;
 }
