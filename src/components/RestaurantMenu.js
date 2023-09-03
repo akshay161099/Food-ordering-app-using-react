@@ -6,6 +6,7 @@ import Offers from "./Offers";
 import FoodItems from "./FoodItems";
 const Restaurantmenu = () =>{
     const [menuList, setMenuList] = useState(null); 
+    const [items,setItems] = useState(null);
     useEffect(()=>{fetchMenu();},[])
     const params = useParams();
     const fetchMenu = async () =>{
@@ -26,6 +27,7 @@ const Restaurantmenu = () =>{
     const {name,cuisines,avgRating,city,costForTwo} = menuList?.cards[0]?.card?.card?.info;
     const offers = menuList?.cards[1]?.card.card.gridElements.infoWithStyle.offers;
     const foodItems = menuList?.cards[2].groupedCard.cardGroupMap.REGULAR.cards;
+    
     const categories = foodItems.filter((category) => {
         return category?.card?.card?.["@type"] === 'type.googleapis.com/swiggy.presentation.food.v2.ItemCategory'});
     //const {couponCode, description, header, offerLogo} =  
@@ -33,17 +35,20 @@ const Restaurantmenu = () =>{
     return(
         
         <div className="w-6/12 m-auto text-center ">
-            <div className="text-xl text-b p-4 ">
+            <div className="text-xl text-b p-4 font-bold">
                 <h1 className="text-xl">{name}</h1>
                 <h3>{cuisines.join(", ")}</h3>
             </div>
             <div>
                 {
-                    
-                    categories.map((food)=>{
-                        //console.log(food)
+                    categories.map((food,index)=>{
+                        //console.log(index)
                         return(
-                            <FoodItems foodItems={food} />
+                            <FoodItems foodItems={food} 
+                            key={food.card.card.title}
+                            showIndex = {index === items ? true:false }
+                            setItems = {()=>setItems(index)}
+                            />
                         );
                     })
                 }
