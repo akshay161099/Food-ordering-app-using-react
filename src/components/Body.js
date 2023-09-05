@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom"; 
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import UserContext from "../utils/UserContext";
 const Body = () =>{
     const [resList,setRestaurantList] = useState([]);
     const[resFilterList,setResFilterList] = useState([]);
@@ -13,9 +14,9 @@ const Body = () =>{
         setRestaurantList(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setResFilterList(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     };
-    if(resFilterList.length === 0){
-        return(<Shimmer/>);
-    }
+    
+    const {loggedInUser, setUserName} = useContext(UserContext);
+
     return (
         resFilterList.length === 0? <Shimmer/>:
         <div className="m-5">
@@ -41,13 +42,18 @@ const Body = () =>{
                 }
                     
                 }}> Filter the Buttons</button>
+                <div>
+                <input className="border border-black"  value={loggedInUser} onChange={(e)=> {setUserName(e.target.value)}}></input>
             </div>
+            </div>
+            
             <div className="flex flex-wrap px-5">
                 {
                     resFilterList.map((res)=>{
                         return <Link key={res?.info?.id} to={"./restaurants/"+res?.info?.id} className="linkTag"><RestaurantCard resData={res.info}  /></Link>
                     })
                 }
+                
                 
             </div>
         </div>

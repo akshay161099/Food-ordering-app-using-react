@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
 import { GITHUB_LINK, GITHUB_LOGO, LINKEDIN_LINK, LINKEDIN_LOGO } from "../utils/constants";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 const About = ()=>{
+    const {loggedInUser} = useContext(UserContext);
     return (
         <div>
             <div><h1 className="text-4xl px-4 pt-4">About us</h1></div>
             <div>
-                <p className="p-10 text-lg">My name is Akshay. I am a Software Developer in the day and open source developer at night.
+                <p className="p-10 text-lg">My name is {loggedInUser}. I am a Software Developer in the day and open source developer at night.
                 This website is a swiggy like - food ordering website. 
                 I hope you find this website interesting. The source code is uploaded to my github repo.
                 Below is the my github link. 

@@ -15,14 +15,12 @@ const FoodItems = ({foodItems,showIndex,setItems}) =>{
             <div className="justify-between w-auto flex  text-2xl " onClick={handleClick}> 
                 <h2 >{title + " ("+dataItems.itemCards.length+")"}</h2>▼
             </div>
-            <div className="text-left h-auto w-auto">
+            <div className="text-left ">
                 {
                     isClicked && showIndex && <ItemsPerCategory data={dataItems} /> 
-                }
-                
-                   
+                }                   
             </div>
-            
+
         </div>
     );
 }
